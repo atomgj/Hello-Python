@@ -15,8 +15,8 @@ def GetFileList(dir, fileList):
             GetFileList(newDir, fileList)
     return fileList
     
-flist = GetFileList('/usr/local/projects/python/数据', [])
-ofile = open('/usr/local/projects/python/'+str(time.time())+'.txt', 'w')
+flist = GetFileList('/usr/local/projects/database/20170508', [])
+ofile = open('/usr/local/projects/database/20170508/'+str(time.time())+'.txt', 'w')
 ofile.write('年,月,日,时,分,秒,经度,纬度,强度,站点\r\n')
 pattern = re.compile(r'年')
 def is_num_by_except(num):
@@ -34,7 +34,7 @@ for fr in flist:
             txt = line.split('\r\n')[0]
             s = txt.split(',')
             if len(s) != 9 :
-                print s
+                print len(s)
             else:
                 isnum = False
                 for i in s:

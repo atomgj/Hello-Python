@@ -22,10 +22,10 @@ def is_num_by_except(num):
         print "%s ValueError" % num
         return False
         
-list = GetFileList('/usr/local/projects/database/20161220', [])
-wfile = open('/usr/local/projects/database/20161220/'+str(time.time())+'.txt', 'w')
-wfile.write('序号,年月日,时分秒,纬度,经度,强度,陡度,误差,定位方式,省,市,县\r\n')
-log = open('/usr/local/projects/database/20161220/error-'+str(time.time())+'.txt', 'w')
+list = GetFileList('/usr/local/projects/database/20170508', [])
+wfile = open('/usr/local/projects/database/20170508/'+str(time.time())+'.txt', 'w')
+wfile.write('序号,年,月,日,时,分,秒,纬度,经度,强度\r\n')
+log = open('/usr/local/projects/database/20170508/error-'+str(time.time())+'.txt', 'w')
 p = re.compile('txt')
 i = 0
 for f in list:
@@ -45,9 +45,10 @@ for f in list:
             except:
                 print line
                 print f
-        arr = uf.split('\r\n')[0].split()
+        arr = uf.split('\r\n')[0].split(',')
         isnum = False
         newArr = []
+        print arr
         for s in arr:
             try:
                 idx = arr.index(s)

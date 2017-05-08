@@ -12,8 +12,8 @@ def GetFileList(dir, fileList):
             GetFileList(newDir, fileList)
     return fileList
 
-list = GetFileList('/usr/local/projects/database/20161220', [])
-wfile = open('/usr/local/projects/database/20161220/output.txt', 'w')
+list = GetFileList('/usr/local/projects/database/20170508', [])
+wfile = open('/usr/local/projects/database/20170508/output.txt', 'w')
 
 p = re.compile('txt')
 
@@ -25,9 +25,11 @@ for f in list:
     for line in open(f, 'r'):
         if not line:
             break
-        arr = line.split()
+        
+        arr = line.split('\r\n')
         str = ''
-        if len(arr) != 12:
+        print len(arr);
+        if len(arr) != 9:
             continue
         for s in arr:
             idx = arr.index(s)
